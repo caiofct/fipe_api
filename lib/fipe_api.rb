@@ -1,5 +1,6 @@
 require "fipe_api/version"
-
-module FipeApi
-  # Your code goes here...
-end
+require "fipe_api/base"
+require "fipe_api/utils"
+require "fipe_api/resources/vehicle"
+require "fipe_api/resources/table"
+require "fipe_api/resources/brand"
