@@ -1,9 +1,9 @@
 # FipeApi
 
-[![Gem Version](http://img.shields.io/gem/v/fipe_api.svg)][gem]
-[![Build Status](http://img.shields.io/travis/caiofct/fipe_api.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/caiofct/fipe_api.svg)][gemnasium]
-[![Code Climate](http://img.shields.io/codeclimate/github/caiofct/fipe_api.svg)][codeclimate]
+![Gem Version](http://img.shields.io/gem/v/fipe_api.svg)
+![Build Status](http://img.shields.io/travis/caiofct/fipe_api.svg)
+![Dependency Status](http://img.shields.io/gemnasium/caiofct/fipe_api.svg)
+![Code Climate](http://img.shields.io/codeclimate/github/caiofct/fipe_api.svg)
 
 This application is a ruby client to the Tabela Fipe Api - http://www.fipe.org.br/pt-br/indices/veiculos/. It makes use the excellent http gem to make http requests and nokogiri to parse the response
 
