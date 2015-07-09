@@ -27,9 +27,9 @@ Or install it yourself as:
 
 The base class to use is a FipeApi::Vehicle. The Fipe data makes use of three Vehicles types wich are mapped to a FipeApi::Vehicle constant. The constants are:
 
-FipeApi::Vehicle::CAR
-FipeApi::Vehicle::MOTORCYCLE
-FipeApi::Vehicle::TRUCK
+* `FipeApi::Vehicle::CAR`
+* `FipeApi::Vehicle::MOTORCYCLE`
+* `FipeApi::Vehicle::TRUCK`
 
 You can get all Vehicles types with:
 
