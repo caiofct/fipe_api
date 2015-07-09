@@ -24,15 +24,14 @@ module FipeApi
 
     def get_brands(table = nil)
       if table.nil?
-        table = Table.lastest(self)
+        table = Table.latest(self)
       end
 
-      debugger
-      response = HTTP.headers(accept: "application/json", :"Accept-Encoding" => "gzip, deflate").post("http://www.fipe.org.br/IndicesConsulta-ConsultarMarcas", body: { codigoTabelaReferencia: table.id, codigoTipoVeiculo: self.id }).to_s
+      response = HTTP.post("http://www.fipe.org.br/IndicesConsulta-ConsultarMarcas", params: { codigoTabelaReferencia: table.id, codigoTipoVeiculo: self.id }, body: {}.to_json).to_s
       brands_hash = JSON.parse(response)
       brands_result = []
       brands_hash.each do |brand|
-        brands_result << Brand.new(brand[:Value].to_i, brand[:Label])
+        brands_result << Brand.new(brand["Value"], brand["Label"], table, self)
       end
 
       brands_result
