@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["caiofct@ifce.edu.br"]
 
   spec.summary       = %q{A ruby client to consume Tabela Fipe api data - http://www.fipe.org.br/pt-br/indices/veiculos/}
-  spec.description   = %q{This application is a ruby client to the Tabela Fipe Api - http://www.fipe.org.br/pt-br/indices/veiculos/. It makes use the excellent faraday gem to make http requests and nokogiri to parse the responses.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{This application is a ruby client to the Tabela Fipe Api - http://www.fipe.org.br/pt-br/indices/veiculos/. It makes use the excellent http gem to make http requests and nokogiri to parse the response.}
+  spec.homepage      = "https://github.com/caiofct/fipe_api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

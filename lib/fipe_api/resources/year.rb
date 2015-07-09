@@ -32,7 +32,7 @@ module FipeApi
       result_json = JSON.parse(response)
       fipe_result = nil
       if !result_json.nil?
-        fipe_result = FipeResult.new(result_json["CodigoFipe"],
+        fipe_result = FipeResult.new(result_json["CodigoFipe"].strip,
                                      self,
                                      result_json["Combustivel"],
                                      result_json["Autenticacao"],
