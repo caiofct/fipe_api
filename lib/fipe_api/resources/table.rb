@@ -21,7 +21,7 @@ module FipeApi
       tables_hash.each do |table|
         if table["Mes"] != ""
           parts = table["Mes"].strip.split("/")
-          tables << Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_s)
+          tables << Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_i)
         end
       end
 
@@ -37,7 +37,7 @@ module FipeApi
       # first_option = doc.css("#selectTabelaReferencia#{vehicle.name_id} option").first
       if table["Mes"] != ""
         parts = table["Mes"].strip.split("/")
-        table = Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_s)
+        table = Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_i)
       end
       table
     end
@@ -47,6 +47,7 @@ module FipeApi
       return nil if vehicle.nil? || !vehicle.kind_of?(FipeApi::Vehicle)
       result = nil
       tables = self.all(vehicle)
+
       tables.each do |table|
         if table.month == month && table.year == year
           result = table
