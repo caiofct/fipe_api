@@ -13,11 +13,12 @@ module FipeApi
     def self.all(vehicle)
       return [] if vehicle.nil?
       tables = []
-      doc = Nokogiri::HTML(HTTP.get("http://www.fipe.org.br/pt-br/indices/veiculos/").to_s)
-      doc.css("#selectTabelaReferencia#{vehicle.name_id} option").each do |option|
-        if option.text != ""
-          parts = option.text.strip.split("/")
-          tables << Table.new(option.attr('value'), Utils.month_name_to_int(parts[0]), parts[1].to_i)
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", body: {}.to_json).to_s
+      tables_hash = JSON.parse(response)
+      tables_hash.each do |table|
+        if table["Mes"] != ""
+          parts = table["Mes"].strip.split("/")
+          tables << Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_s)
         end
       end
 
@@ -27,11 +28,12 @@ module FipeApi
     def self.latest(vehicle)
       return nil if vehicle.nil? || !vehicle.kind_of?(FipeApi::Vehicle)
       table = nil
-      doc = Nokogiri::HTML(HTTP.get("http://www.fipe.org.br/pt-br/indices/veiculos/").to_s)
-      first_option = doc.css("#selectTabelaReferencia#{vehicle.name_id} option").first
-      if first_option.text != ""
-        parts = first_option.text.strip.split("/")
-        table = Table.new(first_option.attr('value'), Utils.month_name_to_int(parts[0]), parts[1].to_i)
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", body: {}.to_json).to_s
+      table = JSON.parse(response).first
+      # first_option = doc.css("#selectTabelaReferencia#{vehicle.name_id} option").first
+      if table["Mes"] != ""
+        parts = table["Mes"].strip.split("/")
+        table = Table.new(table["Codigo"], Utils.month_name_to_int(parts[0]), parts[1].to_s)
       end
       table
     end

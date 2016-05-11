@@ -17,7 +17,7 @@ module FipeApi
         table = Table.latest(self.vehicle)
       end
 
-      response = HTTP.post("http://www.fipe.org.br/IndicesConsulta-ConsultarModelos",
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarModelos",
                  params: {
                     codigoTabelaReferencia: table.id,
                     codigoTipoVeiculo: self.vehicle.id,

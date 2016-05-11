@@ -27,7 +27,7 @@ module FipeApi
         table = Table.latest(self)
       end
 
-      response = HTTP.post("http://www.fipe.org.br/IndicesConsulta-ConsultarMarcas", params: { codigoTabelaReferencia: table.id, codigoTipoVeiculo: self.id }, body: {}.to_json).to_s
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarMarcas", params: { codigoTabelaReferencia: table.id, codigoTipoVeiculo: self.id }, body: {}.to_json).to_s
       brands_hash = JSON.parse(response)
       brands_result = []
       brands_hash.each do |brand|
