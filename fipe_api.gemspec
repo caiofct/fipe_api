@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["caiofct@ifce.edu.br"]
 
   spec.summary       = %q{A ruby client to consume Tabela Fipe api data - http://veiculos.fipe.org.br/}
-  spec.description   = %q{This application is a ruby client to the Tabela Fipe Api - http://veiculos.fipe.org.br/. It makes use the excellent faraday gem to make http requests and nokogiri to parse the responses.}
+  spec.description   = %q{This application is a ruby client to the Tabela Fipe Api - http://veiculos.fipe.org.br/. It makes use of the excellent http gem to make http requests and nokogiri to parse the responses.}
   spec.homepage      = "https://github.com/caiofct/fipe_api"
   spec.license       = "MIT"
 
