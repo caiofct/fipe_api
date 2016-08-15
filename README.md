@@ -47,7 +47,7 @@ vehicles.first.name => Car
 or you can initialize an specific Vehicle type, let`s say a CAR, with:
 
 ```ruby
-vehicle = FipeApi::Vehicle.new(Vehicle::CAR, "Car")
+vehicle = FipeApi::Vehicle.new(FipeApi::Vehicle::CAR, "Car")
 ```
 
 Given a vehicle you can get all of its tables. A Table is generated each month with updated values for some vehicles. So, to get all tables you may do:
