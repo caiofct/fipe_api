@@ -53,20 +53,20 @@ vehicle = FipeApi::Vehicle.new(FipeApi::Vehicle::CAR, "Car")
 Given a vehicle you can get all of its tables. A Table is generated each month with updated values for some vehicles. So, to get all tables you may do:
 
 ```ruby
-tables = vehicle.get_tables 
+tables = vehicle.get_tables
 ```
 
 Frequently you will be using the latest table generated, i.e. that was generated for the current month and year, to get the vehicles data. It`s possible to
 retrieve the latest table for an specific vehicle with:
 
 ```ruby
-latest_table = Table.latest(vehicle)
+latest_table = FipeApi::Table.latest(vehicle)
 ```
 
 or you can get a table for an specific month and year:
 
 ```ruby
-table = Table.find_by_month_and_year(vehicle, 3, 2015) # Table from March/2015
+table = FipeApi::Table.find_by_month_and_year(vehicle, 3, 2015) # Table from March/2015
 ```
 
 Once you have a vehicle and a given table, you can get all of the vehicle`s Brands(Ford, Fiat, GM/Chevrolet, BMW, etc...), like so:
@@ -87,7 +87,7 @@ You can get the years with:
 
 ```ruby
 years = model.get_years(table) #If you don`t pass a table, it will use the latest table for the vehicle.
-``` 
+```
 
 Finally, once you have an specific year for a vehicle, it`s possible to get its price like the following:
 
