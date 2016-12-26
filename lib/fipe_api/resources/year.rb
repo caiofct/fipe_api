@@ -18,6 +18,7 @@ module FipeApi
       end
 
       response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarValorComTodosParametros",
+                 headers: HEADERS,
                  params: {
                     codigoTabelaReferencia: table.id,
                     codigoTipoVeiculo: self.model.brand.vehicle.id,

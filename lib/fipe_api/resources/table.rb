@@ -16,7 +16,7 @@ module FipeApi
     def self.all(vehicle)
       return [] if vehicle.nil?
       tables = []
-      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", body: {}.to_json).to_s
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", headers: HEADERS, body: {}.to_json).to_s
       tables_hash = JSON.parse(response)
       tables_hash.each do |table|
         if table["Mes"] != ""
@@ -32,7 +32,7 @@ module FipeApi
     def self.latest(vehicle)
       return nil if vehicle.nil? || !vehicle.kind_of?(FipeApi::Vehicle)
       table = nil
-      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", body: {}.to_json).to_s
+      response = HTTP.post("http://veiculos.fipe.org.br/api/veiculos/ConsultarTabelaDeReferencia", headers: HEADERS, body: {}.to_json).to_s
       table = JSON.parse(response).first
       # first_option = doc.css("#selectTabelaReferencia#{vehicle.name_id} option").first
       if table["Mes"] != ""
