@@ -1,12 +1,14 @@
 module FipeApi
   class Year < FipeApi::Base
     attr_accessor :id
+    attr_accessor :year
     attr_accessor :name
     attr_accessor :model
     attr_accessor :fuel
 
     def initialize(id, name, model)
       self.id = id.split("-")[0]
+      self.year = self.id == '32000' ? Date.current.year : self.id
       self.fuel = id.split("-")[1]
       self.name = name
       self.model = model
