@@ -75,6 +75,12 @@ Once you have a vehicle and a given table, you can get all of the vehicle`s Bran
 brands = vehicle.get_brands(table) #If you don`t pass a table, it will use the latest table for the vehicle.
 ```
 
+You can also filter the the array by name if you want to get an specific brand:
+
+```ruby
+brand = vehicle.get_brands.find{|b| b.name == 'Ford' }
+```
+
 Now you can retrieve all Models for an specific brand. For the Ford brand we have as examples of models: Fiesta, Fusion, Taurus, etc. Use this syntax to get
 all models:
 
