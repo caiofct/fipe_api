@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "fipe_api"
   spec.version       = FipeApi::VERSION
   spec.authors       = ["Caio Teixeira"]
-  spec.email         = ["caiofct@ifce.edu.br"]
+  spec.email         = ["caiofct@gmail.com"]
 
   spec.summary       = %q{A ruby client to consume Tabela Fipe api data - http://veiculos.fipe.org.br/}
   spec.description   = %q{This application is a ruby client to the Tabela Fipe Api - http://veiculos.fipe.org.br/. It makes use of the excellent http gem to make http requests and nokogiri to parse the responses.}
