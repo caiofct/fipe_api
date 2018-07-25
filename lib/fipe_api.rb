@@ -1,4 +1,3 @@
-require 'byebug'
 require "fipe_api/version"
 require "fipe_api/base"
 require "fipe_api/utils"
